@@ -6,7 +6,7 @@ class InvalidYearError(Exception):
     """Raised when year has an invalid format"""
     pass
 
-class UnsopportedCountryCodeError(Exception):
+class UnsupportedCountryCodeError(Exception):
     """Raised when Nager.Date does not support the requested country."""
     pass
 
