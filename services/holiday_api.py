@@ -40,10 +40,10 @@ class HolidayAPIClient:
         except requests.exceptions.ConnectionError:
             raise APIRequestError("Could not connect to the holiday API.")
         except requests.exceptions.HTTPError as e:
-            if requests.status_codes == 404:
+             if response.status_code == 404:
                 raise UnsupportedCountryError(f"No holiday information found for {country_code} in {year}.")
                 raise APIRequestError(f"API returned HTTP {response.status_code}: {e}.")
-        except requuests.exceptions.RequestException as e:
+        except requests.exceptions.RequestException as e:
             raise APIRequestError(f"API request failed: {e}.")
         
         try:
