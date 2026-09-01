@@ -6,7 +6,7 @@ Contains the logic for comparing the holidays of two countries.
 
 from dataclasses import dataclass
 from typing import List
-from models.holiday import holiday
+from models.holiday import Holiday
 
 @dataclass
 class ComparisonResult:
@@ -97,7 +97,7 @@ class ComparisonService:
         
         for holiday in holidays_a:
         
-            normalized_name = self.normalize_name(holiday.name)
+            normalized_name = self._normalize_name(holiday.name)
         
             if normalized_name not in names_b:
                 country_specific.append(holiday)
