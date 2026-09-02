@@ -1,24 +1,27 @@
 """
 app.py
 
+This is the main entry point for the Streamlit application. 
+It provides a user interface for exploring public holidays and 
+cultural information for different countries.
 """
 
-# please do not write any code here
-
-# this project was last updated and sent to the group on 31/08 around 7:00 PM
 import streamlit as st
 import pandas as pd
 from services.holiday_api import HolidayAPIClient
 from services.comparison_service import ComparisonService
 from services.culture_service import CultureGuideGenerator
+import os
+from dotenv import load_dotenv
+
 
 st.set_page_config(page_title="Global Holiday Planner", page_icon="📅", layout="wide")
 
 def get_flag_emoji(country_code: str) -> str:
-    country_code = country_code.strip().upper()
-    if len(country_code) != 2 or not country_code.isalpha(): 
+    country_code = (country_code or "").strip().upper()
+    if len(country_code) != 2 or not country_code.isascii() or not country_code.isalpha():
         return "🌐"
-    return chr(ord(country_code[0]) + 127397) + chr(ord(country_code[1]) + 127397)
+    return "".join(chr(0x1F1E6 + ord(letter) - ord("A")) for letter in country_code)
 
 # High-Contrast Light Theme Fix
 st.markdown("""
@@ -78,8 +81,12 @@ st.markdown("""
 
 st.title("📅 Public Holiday & Cultural Planner")
 
+load_dotenv() # Load the environment variables from the .env file
+
+api_key = os.getenv("GEMINI_API_KEY")
+
 api_client = HolidayAPIClient()
-culture_generator = CultureGuideGenerator()
+culture_generator = CultureGuideGenerator(api_key)
 
 tab1, tab2 = st.tabs(["📊 Country Explorer", "⚖️ Cross-Country Comparison"])
 
@@ -88,7 +95,7 @@ with tab1:
     with c1:
         raw_country = st.text_input("Country Code (ISO)", value="NG", max_chars=2)
         flag = get_flag_emoji(raw_country)
-        st.markdown(f"**Region:** `{raw_country.upper()}` {flag}")
+        st.markdown(f"**Region:** {flag} `{raw_country.upper()}`")
         year = st.number_input("Year", value=2026, min_value=1900, max_value=2099)
         run = st.button("🚀 Fetch Holidays", width="stretch")
 
@@ -110,7 +117,7 @@ with tab1:
                 col_m2.metric("Year", c_year)
                 
                 st.divider()
-                st.subheader(f"📅 {c_code.upper()} Schedule {c_flag}")
+                st.subheader(f"📅 {c_flag} {c_code.upper()} Schedule")
                 
                 df = pd.DataFrame([
                     {
@@ -129,7 +136,7 @@ with tab1:
                 if st.button("📖 Get Cultural Guide", width="stretch"):
                     with st.spinner("Generating cultural insights with Gemini..."):
                         guide = culture_generator.get_cultural_guide(selected_holiday, c_code)
-                        st.markdown(guide)
+                        st.write_stream(guide)
 
             except Exception as e:
                 st.error(f"⚠️ {str(e)}")
@@ -151,9 +158,23 @@ with tab2:
             
             m1, m2, m3 = st.columns(3)
             m1.metric("🤝 Shared Holidays", len(res.shared_holidays))
-            m2.metric(f"Exclusive to {c_a.upper()} {flag_a}", len(res.country_a_only))
-            m3.metric(f"Exclusive to {c_b.upper()} {flag_b}", len(res.country_b_only))
+            m2.metric(f"Exclusive to {flag_a} {c_a.upper()}", len(res.country_a_only))
+            m3.metric(f"Exclusive to {flag_b} {c_b.upper()}", len(res.country_b_only))
             
+            st.divider()
+            st.subheader("🤝 Shared Holidays")
+            shared = [
+                {
+                    "Holiday Name": holiday.name,
+                    "Date": holiday.date,
+                    "Category": holiday.holiday_type or "Public"
+                } for holiday in res.shared_holidays
+            ]
+            if shared:
+                st.dataframe(pd.DataFrame(shared), width="stretch", hide_index=True)
+            else:
+                st.info("No shared holidays found between these countries.")
+
             st.divider()
             st.subheader("📅 Overlapping Holiday Dates")
             overlaps = [
@@ -167,5 +188,45 @@ with tab2:
                 st.dataframe(pd.DataFrame(overlaps), width="stretch", hide_index=True)
             else:
                 st.info("No exact date overlaps found between these two countries.")
+
+            st.divider()
+            st.subheader(f"🇦 {c_a.upper()}-Only Holidays")
+            country_a_only = [
+                {
+                    "Holiday Name": holiday.name,
+                    "Date": holiday.date,
+                    "Category": holiday.holiday_type or "Public"
+                } for holiday in res.country_a_only
+            ]
+            if country_a_only:
+                st.dataframe(pd.DataFrame(country_a_only), width="stretch", hide_index=True)
+            else:
+                st.info(f"No holidays are exclusive to {c_a.upper()}.")
+
+            st.subheader(f"🇧 {c_b.upper()}-Only Holidays")
+            country_b_only = [
+                {
+                    "Holiday Name": holiday.name,
+                    "Date": holiday.date,
+                    "Category": holiday.holiday_type or "Public"
+                } for holiday in res.country_b_only
+            ]
+            if country_b_only:
+                st.dataframe(pd.DataFrame(country_b_only), width="stretch", hide_index=True)
+            else:
+                st.info(f"No holidays are exclusive to {c_b.upper()}.")
         except Exception as e:
             st.error(f"⚠️ {str(e)}")
+
+
+
+
+
+
+
+
+
+
+
+
+#python -m streamlit run app.py

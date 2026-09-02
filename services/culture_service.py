@@ -1,4 +1,3 @@
-from dotenv import load_dotenv
 """
 culture_service.py
 
@@ -10,37 +9,35 @@ Gets cultural information from Gemini
 
 # This service should also be responsible for prompt generation
 
-import os
-import google.generativeai as genai
+from google import genai
+from collections.abc import Iterator
 
 class CultureGuideGenerator:
     """Gets cultural information from Gemini for a given holiday."""
 
-    def __init__(self):
-        # Retrieve the API key from environment variables
-        api_key = os.getenv("GEMINI_API_KEY")
-        if api_key:
-            genai.configure(api_key=api_key)
-            self.model = genai.GenerativeModel('gemini-3.6-flash')
-        else:
-            self.model = None
-
-    def get_cultural_guide(self, holiday_name: str, country_code: str) -> str:
-        if not self.model:
-            return "⚠️ Gemini API key missing. Please ensure GEMINI_API_KEY is set in your environment or .env file."
+    def __init__(self, api_key: str):
+        api_key = (api_key or "").strip()
+        if not api_key:
+            raise ValueError("Gemini API key is required.")
         
-        prompt = f"""
-        Provide a concise, vibrant cultural summary for the holiday '{holiday_name}' in country code '{country_code}'.
-        Include:
-        - **Cultural Significance**: What this day means to locals.
-        - **Traditions & Customs**: Special foods, music, rituals, or common activities.
-        - **Local Greetings**: A common local phrase or greeting used during this holiday.
-        Keep it brief, engaging, and formatted in clean markdown.
-        """
+        self.client = genai.Client(api_key=api_key)
+
+
+    def get_cultural_guide(self, holiday_name: str, country_code: str) -> Iterator[str]:
+        """Generates a cultural guide for a given holiday and country code using the Gemini API."""
+
+        prompt = f"Summarize the holiday '{holiday_name}' ({country_code}) in brief Markdown covering: Cultural Significance, Traditions & Customs, and Local Greeting."
         
         try:
-            response = self.model.generate_content(prompt)
-            return response.text
-        except Exception as e:
-            return f"⚠️ Error fetching cultural guide: {str(e)}"
-load_dotenv()
+            response_stream = self.client.models.generate_content_stream(
+                model="gemini-3.5-flash-lite",
+                contents=prompt
+            )
+
+            # streaming output means we can yield each chunk of text as it arrives, allowing for real-time display in the UI.
+            for chunk in response_stream:
+                if chunk.text:
+                    yield chunk.text
+
+        except Exception as error:
+            raise RuntimeError(f"Gemini request failed: {error}") from error
