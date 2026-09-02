@@ -10,6 +10,7 @@ import streamlit as st
 import pandas as pd
 from services.holiday_api import HolidayAPIClient
 from services.comparison_service import ComparisonService
+from services.culture_service import CultureGuideGenerator
 
 st.set_page_config(page_title="Global Holiday Planner", page_icon="📅", layout="wide")
 
@@ -28,16 +29,18 @@ st.markdown("""
     /* Typography & Headers */
     h1, h2, h3, label, p, span, .stMarkdown { color: #0F172A !important; font-weight: 600 !important; }
     
-    /* Fix Input Fields (Light gray box with high-contrast black text) */
-    div[data-baseweb="input"] {
+    /* Force Light Styling directly on Input Controls */
+    .stTextInput input, .stNumberInput input {
         background-color: #E2E8F0 !important;
-        border: 2px solid #94A3B8 !important;
-        border-radius: 8px !important;
-    }
-    div[data-baseweb="input"] input {
         color: #0F172A !important;
         font-weight: 700 !important;
-        background-color: transparent !important;
+        border: 1px solid #94A3B8 !important;
+    }
+
+    /* Force parent container background */
+    div[data-baseweb="input"], div[data-baseweb="base-input"] {
+        background-color: #E2E8F0 !important;
+        border-radius: 8px !important;
     }
     
     /* Number Input Buttons (+/-) */
@@ -76,6 +79,8 @@ st.markdown("""
 st.title("📅 Public Holiday & Cultural Planner")
 
 api_client = HolidayAPIClient()
+culture_generator = CultureGuideGenerator()
+
 tab1, tab2 = st.tabs(["📊 Country Explorer", "⚖️ Cross-Country Comparison"])
 
 with tab1:
@@ -85,27 +90,47 @@ with tab1:
         flag = get_flag_emoji(raw_country)
         st.markdown(f"**Region:** `{raw_country.upper()}` {flag}")
         year = st.number_input("Year", value=2026, min_value=1900, max_value=2099)
-        run = st.button("🚀 Fetch Holidays", use_container_width=True)
+        run = st.button("🚀 Fetch Holidays", width="stretch")
 
     with c2:
-        if run:
+        if run or "holidays" in st.session_state:
             try:
-                holidays = api_client.get_holidays(raw_country, year)
+                if run:
+                    st.session_state.holidays = api_client.get_holidays(raw_country, year)
+                    st.session_state.selected_country = raw_country
+                    st.session_state.selected_year = year
+
+                holidays = st.session_state.holidays
+                c_code = st.session_state.selected_country
+                c_year = st.session_state.selected_year
+                c_flag = get_flag_emoji(c_code)
+
                 col_m1, col_m2 = st.columns(2)
-                col_m1.metric(f"Total Holidays ({raw_country.upper()})", len(holidays))
-                col_m2.metric("Year", year)
+                col_m1.metric(f"Total Holidays ({c_code.upper()})", len(holidays))
+                col_m2.metric("Year", c_year)
                 
                 st.divider()
-                st.subheader(f"📅 {raw_country.upper()} Schedule {flag}")
+                st.subheader(f"📅 {c_code.upper()} Schedule {c_flag}")
                 
                 df = pd.DataFrame([
                     {
                         "Holiday Name": h.name, 
                         "Date 📅": h.date, 
-                        "Category 🏷️": h.holiday_type or "Public"
+                        "Category 🏷️": getattr(h, 'holiday_type', 'Public') or "Public"
                     } for h in holidays
                 ])
-                st.dataframe(df, use_container_width=True, hide_index=True)
+                st.dataframe(df, width="stretch", hide_index=True)
+
+                st.divider()
+                st.subheader("✨ Cultural Insights")
+                holiday_names = [h.name for h in holidays]
+                selected_holiday = st.selectbox("Select a holiday to inspect:", holiday_names)
+                
+                if st.button("📖 Get Cultural Guide", width="stretch"):
+                    with st.spinner("Generating cultural insights with Gemini..."):
+                        guide = culture_generator.get_cultural_guide(selected_holiday, c_code)
+                        st.markdown(guide)
+
             except Exception as e:
                 st.error(f"⚠️ {str(e)}")
 
@@ -118,7 +143,7 @@ with tab2:
     flag_a = get_flag_emoji(c_a)
     flag_b = get_flag_emoji(c_b)
     
-    if st.button("🔄 Compare Schedules", use_container_width=True):
+    if st.button("🔄 Compare Schedules", width="stretch"):
         try:
             h_a = api_client.get_holidays(c_a, comp_yr)
             h_b = api_client.get_holidays(c_b, comp_yr)
@@ -139,7 +164,7 @@ with tab2:
                 } for a, b in res.overlapping_dates
             ]
             if overlaps:
-                st.dataframe(pd.DataFrame(overlaps), use_container_width=True, hide_index=True)
+                st.dataframe(pd.DataFrame(overlaps), width="stretch", hide_index=True)
             else:
                 st.info("No exact date overlaps found between these two countries.")
         except Exception as e:
