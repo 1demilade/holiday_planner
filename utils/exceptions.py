@@ -1,3 +1,9 @@
+"""
+exceptions.py
+
+Contains custom exception classes for the holiday planner application.
+"""
+
 class InvalidCountryCodeError(Exception):
     """Raised when the country code has an invalid format"""
     pass
