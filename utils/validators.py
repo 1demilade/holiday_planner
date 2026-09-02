@@ -1,6 +1,9 @@
 """
-validators.py
+validators.py 
+
+Contains functions to validate user input for country codes and years.
 """
+
 
 import re
 
@@ -15,9 +18,9 @@ def validate_country_code(country_code):
     pattern = r"[A-Z]{2}$" # exactly two upperscase letters
 
     if not re.fullmatch(pattern, country_code):
-        raise InvalidCountryCodeError("Couuntry code must contain exactly two letters, e.g. NG, US, or GB")
+        raise InvalidCountryCodeError("Country code must contain exactly two letters, e.g. NG, US, or GB")
     
-    return country_code
+    return country_code # return the validated country code in uppercase
 
 def validate_year(year):
     """Validate the format and range of a year."""
@@ -31,7 +34,7 @@ def validate_year(year):
     
     year = int(year) # change year back to int
 
-    if year < 1900 or year > 9999:
+    if year < 1900 or year > 9999: # check if year is within a reasonable range
         raise InvalidYearError("Year must be between 1900 and 9999.")
     
-    return year
+    return year # return the validated year as an integer
