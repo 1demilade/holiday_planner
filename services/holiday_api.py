@@ -55,7 +55,7 @@ class HolidayAPIClient:
         try:
             data = response.json()
         except ValueError: # Handle JSON decoding error
-            raise APIResponseError("The API resturned invalid JSON.")
+            raise APIResponseError("The API returned invalid JSON.")
         if not isinstance(data, list): #Handle unxepected response format
             raise APIResponseError("Unexpected API response format.")
         

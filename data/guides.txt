@@ -1,17 +1,53 @@
-[
-  {
-    "holiday_name": "Easter Sunday",
-    "country_code": "SE",
-    "guide": "### Easter Sunday (SE)\n\n* **Cultural Significance:** Easter Sunday is the most important festival in the Christian calendar, celebrating the resurrection of Jesus Christ from the dead, as described in the New Testament. It symbolizes victory over death, hope, and new spiritual beginnings, and coincides with the arrival of spring in the Northern Hemisphere.\n\n* **Traditions & Customs:** \n  * **Church Services:** Attending special morning worship services, often featuring candlelighting, hymns, and festive declarations.\n  * **Egg Hunts & Decoration:** Dyeing and hiding hard-boiled or chocolate eggs for children to find, symbolizing new life and rebirth (often associated with the Easter Bunny).\n  * **Family Feasts:** Gathering for a large celebratory meal, traditionally featuring roasted lamb, ham, or seasonal dishes.\n\n* **Local Greeting:** *\"He is risen!\"* (with the traditional response: *\"He is risen indeed!\"*) or simply *\"Happy Easter!\"*"
-  },
-  {
-    "holiday_name": "June 30 Revolution",
-    "country_code": "EG",
-    "guide": "### June 30 Revolution (Egypt)\n\n* **Cultural Significance:** Commemorates the massive public protests in 2013 that led to the removal of President Mohamed Morsi and the Muslim Brotherhood. Officially marked as a national holiday, it is viewed by supporters as a patriotic revolution that saved the country's identity, though it remains a subject of political polarization.\n* **Traditions & Customs:** \n  * Large public celebrations, concerts, and military flyovers, particularly in Cairo's Tahrir Square.\n  * Streets, government buildings, and cars are heavily decorated with Egyptian flags and posters of national leaders.\n  * Televised speeches by political figures and documentaries highlighting national unity and security forces.\n* **Local Greeting:** *\"Kol sana wa enta tayeb\"* (May you be well every year), often accompanied by specific revolutionary slogans such as *\"Tahya Masr\"* (Long live Egypt)."
-  },
-  {
-    "holiday_name": "Louis Riel Day",
-    "country_code": "CA",
-    "guide": "### Louis Riel Day (Canada)\n\n**Cultural Significance**\nObserved annually on the third Monday of February in Manitoba (and coinciding with similar heritage days in other provinces), Louis Riel Day honors Louis Riel, the political leader of the M\u00e9tis people and a founder of Manitoba. The holiday celebrates M\u00e9tis culture, history, and Riel's tireless defense of M\u00e9tis rights, land, and culture against the Canadian government. \n\n**Traditions & Customs**\n*   **Festivals & Gatherings:** Communities host the Festival du Voyageur (Western Canada's largest winter festival) featuring historic reenactments, live music, and storytelling.\n*   **M\u00e9tis Heritage:** Celebrations highlight traditional M\u00e9tis arts, including beadwork, jigging (dance), and fiddle music.\n*   **Outdoor Activities:** Many enjoy winter sports, snowshoeing, and admiring giant snow sculptures.\n\n**Local Greeting**\n*   *\"Happy Louis Riel Day!\"* \n*   In Michif (the traditional M\u00e9tis language): *\"Michif kiskinoham\u00e2kewin\"* (or simply greeting friends with warmth and community spirit)."
-  }
-]
+[GUIDE]
+holiday_name=Children's Day
+country_code=NG
+guide:
+### Children's Day (Nigeria)
+
+* **Cultural Significance:** Celebrated annually on May 27th, Children's Day in Nigeria honors the nation's youth, promotes their rights, and highlights the importance of their welfare, education, and development for the future of the country.
+* **Traditions & Customs:** 
+  * Schools hold vibrant march-pasts (parades) where children in colorful uniforms and cultural attire salute government officials.
+  * Amusement parks, stadiums, and beaches host special parties, concerts, and games.
+  * Parents often buy new clothes, gifts, and prepare special meals for their children.
+* **Local Greeting:** *"Happy Children's Day!"* (Widely spoken in English, as well as in local languages such as Yoruba: *"E ku odun awon omode"*, Igbo: *"Ezi ncha ụbọchị ụmụaka"*, or Hausa: *"Bikin rana ta yara murna"*).
+[/GUIDE]
+
+[GUIDE]
+holiday_name=New Year's Day
+country_code=MA
+guide:
+### New Year’s Day in Morocco (MA)
+
+* **Cultural Significance:** In Morocco, the Gregorian New Year (January 1st) is celebrated primarily as an international and civil holiday rather than a major religious one. While the Islamic New Year (*Am Hejri*) follows the lunar calendar, January 1st is an official public holiday marked by modern celebrations, family gatherings, and reflection.
+
+* **Traditions & Customs:** 
+  * Families and friends often gather for a special festive meal, frequently featuring traditional Moroccan dishes like *couscous* or *tagine*, alongside international pastries.
+  * Younger generations in major cities (such as Casablanca, Marrakech, and Rabat) often celebrate by attending parties, watching fireworks, or gathering in public squares.
+  * It is also common to exchange phone calls, text messages, and social media greetings with well-wishes for health and prosperity in the coming year.
+
+* **Local Greeting:** 
+  * Arabic (Darija): *"Sanah saeeda"* (سنة سعيدة) – Meaning "Happy New Year."
+  * French (widely used in business and urban areas): *"Bonne année."*
+[/GUIDE]
+
+[GUIDE]
+holiday_name=Human Rights Day
+country_code=ZA
+guide:
+# Human Rights Day (South Africa)
+
+### Cultural Significance
+Observed on **March 21st**, Human Rights Day in South Africa commemorates the tragic events of the **Sharpeville massacre** on March 21, 1960, where police opened fire on a peaceful anti-pass law protest, killing 69 people. The day serves as a poignant reminder of the country's arduous struggle for liberation and the heavy price paid for equality. Today, it is a celebration of the democratic Constitution—specifically the Bill of Rights—and a nationwide call to reflect on, protect, and promote human dignity for all South Africans.
+
+### Traditions & Customs
+* **State Addresses and Commemorative Events:** The President and government officials host national commemoration events, often in Sharpeville, featuring speeches that highlight the state of human rights in the country.
+* **Community Gatherings & Workshops:** Civil society organizations, schools, and community groups hold educational workshops, art exhibitions, and dialogues focused on anti-racism, civic responsibility, and social justice.
+* **Cultural Celebrations:** Public parks and community centers host music concerts, poetry readings, and sports tournaments that celebrate South Africa's diverse cultural heritage (the "Rainbow Nation").
+
+### Local Greeting
+Because South Africa is a multilingual nation with 11 official languages, greetings vary by region and culture. Common ways to greet on this day include:
+* **Zulu:** *"Sawubona"* (Hello / We see you)
+* **Xhosa:** *"Molo"* (Hello)
+* **Afrikaans:** *"Goeiedag"* (Good day)
+* **English:** *"Happy Human Rights Day"*
+[/GUIDE]
