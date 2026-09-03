@@ -1,0 +1,209 @@
+[
+  {
+    "country_a": "NG",
+    "country_b": "US",
+    "year": 2026,
+    "shared_holidays": [
+      {
+        "name": "New Year's Day",
+        "date": "2026-01-01",
+        "holiday_type": "Public",
+        "country_code": "NG"
+      },
+      {
+        "name": "Good Friday",
+        "date": "2026-04-03",
+        "holiday_type": "Public",
+        "country_code": "NG"
+      },
+      {
+        "name": "Christmas Day",
+        "date": "2026-12-25",
+        "holiday_type": "Public",
+        "country_code": "NG"
+      }
+    ],
+    "overlapping_dates": [
+      [
+        {
+          "name": "New Year's Day",
+          "date": "2026-01-01",
+          "holiday_type": "Public",
+          "country_code": "NG"
+        },
+        {
+          "name": "New Year's Day",
+          "date": "2026-01-01",
+          "holiday_type": "Public, Bank",
+          "country_code": "US"
+        }
+      ],
+      [
+        {
+          "name": "Good Friday",
+          "date": "2026-04-03",
+          "holiday_type": "Public",
+          "country_code": "NG"
+        },
+        {
+          "name": "Good Friday",
+          "date": "2026-04-03",
+          "holiday_type": "Public",
+          "country_code": "US"
+        }
+      ],
+      [
+        {
+          "name": "Good Friday",
+          "date": "2026-04-03",
+          "holiday_type": "Public",
+          "country_code": "NG"
+        },
+        {
+          "name": "Good Friday",
+          "date": "2026-04-03",
+          "holiday_type": "Optional",
+          "country_code": "US"
+        }
+      ],
+      [
+        {
+          "name": "Christmas Day",
+          "date": "2026-12-25",
+          "holiday_type": "Public",
+          "country_code": "NG"
+        },
+        {
+          "name": "Christmas Day",
+          "date": "2026-12-25",
+          "holiday_type": "Public, Bank",
+          "country_code": "US"
+        }
+      ]
+    ],
+    "country_a_only": [
+      {
+        "name": "Easter Monday",
+        "date": "2026-04-06",
+        "holiday_type": "Public",
+        "country_code": "NG"
+      },
+      {
+        "name": "Workers' Day",
+        "date": "2026-05-01",
+        "holiday_type": "Public",
+        "country_code": "NG"
+      },
+      {
+        "name": "Children's Day",
+        "date": "2026-05-27",
+        "holiday_type": "Public",
+        "country_code": "NG"
+      },
+      {
+        "name": "Democracy Day",
+        "date": "2026-06-12",
+        "holiday_type": "Public",
+        "country_code": "NG"
+      },
+      {
+        "name": "National Day",
+        "date": "2026-10-01",
+        "holiday_type": "Public",
+        "country_code": "NG"
+      },
+      {
+        "name": "National Youth Day",
+        "date": "2026-11-01",
+        "holiday_type": "Public",
+        "country_code": "NG"
+      },
+      {
+        "name": "Boxing Day",
+        "date": "2026-12-26",
+        "holiday_type": "Public",
+        "country_code": "NG"
+      }
+    ],
+    "country_b_only": [
+      {
+        "name": "Martin Luther King, Jr. Day",
+        "date": "2026-01-19",
+        "holiday_type": "Public, Bank",
+        "country_code": "US"
+      },
+      {
+        "name": "Lincoln's Birthday",
+        "date": "2026-02-12",
+        "holiday_type": "Observance",
+        "country_code": "US"
+      },
+      {
+        "name": "Presidents Day",
+        "date": "2026-02-16",
+        "holiday_type": "Public, Bank",
+        "country_code": "US"
+      },
+      {
+        "name": "Truman Day",
+        "date": "2026-05-08",
+        "holiday_type": "School, Authorities",
+        "country_code": "US"
+      },
+      {
+        "name": "Memorial Day",
+        "date": "2026-05-25",
+        "holiday_type": "Public, Bank",
+        "country_code": "US"
+      },
+      {
+        "name": "Juneteenth National Independence Day",
+        "date": "2026-06-19",
+        "holiday_type": "Public, Bank",
+        "country_code": "US"
+      },
+      {
+        "name": "Independence Day",
+        "date": "2026-07-04",
+        "holiday_type": "Public, Bank",
+        "country_code": "US"
+      },
+      {
+        "name": "Labour Day",
+        "date": "2026-09-07",
+        "holiday_type": "Public, Bank",
+        "country_code": "US"
+      },
+      {
+        "name": "Columbus Day",
+        "date": "2026-10-12",
+        "holiday_type": "Public",
+        "country_code": "US"
+      },
+      {
+        "name": "Columbus Day",
+        "date": "2026-10-12",
+        "holiday_type": "Bank",
+        "country_code": "US"
+      },
+      {
+        "name": "Indigenous Peoples' Day",
+        "date": "2026-10-12",
+        "holiday_type": "Public",
+        "country_code": "US"
+      },
+      {
+        "name": "Veterans Day",
+        "date": "2026-11-11",
+        "holiday_type": "Public, Bank",
+        "country_code": "US"
+      },
+      {
+        "name": "Thanksgiving Day",
+        "date": "2026-11-26",
+        "holiday_type": "Public, Bank",
+        "country_code": "US"
+      }
+    ]
+  }
+]

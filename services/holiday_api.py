@@ -75,6 +75,5 @@ class HolidayAPIClient:
         
         return holidays # return the list of Holiday objects.
     
-    def close(self):
-        self.session.close()
+    
 

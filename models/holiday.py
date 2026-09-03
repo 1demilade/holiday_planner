@@ -17,7 +17,7 @@ class Holiday:
         # Create a Holiday object with the provided attributes: name, date, type, and country code.
 
     def __str__(self):
-        """Controls what happens when we use: print(holiday)"""
+        # Controls what happens when we use: print(holiday)
         return f"{self.name} - {self.date} - {self.holiday_type}"
         # This method returns a string representation of the Holiday object, which includes its name, date, and type. 
         # This is for debugging and logging purposes.
