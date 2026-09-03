@@ -1,0 +1,17 @@
+[
+  {
+    "holiday_name": "Easter Sunday",
+    "country_code": "SE",
+    "guide": "### Easter Sunday (SE)\n\n* **Cultural Significance:** Easter Sunday is the most important festival in the Christian calendar, celebrating the resurrection of Jesus Christ from the dead, as described in the New Testament. It symbolizes victory over death, hope, and new spiritual beginnings, and coincides with the arrival of spring in the Northern Hemisphere.\n\n* **Traditions & Customs:** \n  * **Church Services:** Attending special morning worship services, often featuring candlelighting, hymns, and festive declarations.\n  * **Egg Hunts & Decoration:** Dyeing and hiding hard-boiled or chocolate eggs for children to find, symbolizing new life and rebirth (often associated with the Easter Bunny).\n  * **Family Feasts:** Gathering for a large celebratory meal, traditionally featuring roasted lamb, ham, or seasonal dishes.\n\n* **Local Greeting:** *\"He is risen!\"* (with the traditional response: *\"He is risen indeed!\"*) or simply *\"Happy Easter!\"*"
+  },
+  {
+    "holiday_name": "June 30 Revolution",
+    "country_code": "EG",
+    "guide": "### June 30 Revolution (Egypt)\n\n* **Cultural Significance:** Commemorates the massive public protests in 2013 that led to the removal of President Mohamed Morsi and the Muslim Brotherhood. Officially marked as a national holiday, it is viewed by supporters as a patriotic revolution that saved the country's identity, though it remains a subject of political polarization.\n* **Traditions & Customs:** \n  * Large public celebrations, concerts, and military flyovers, particularly in Cairo's Tahrir Square.\n  * Streets, government buildings, and cars are heavily decorated with Egyptian flags and posters of national leaders.\n  * Televised speeches by political figures and documentaries highlighting national unity and security forces.\n* **Local Greeting:** *\"Kol sana wa enta tayeb\"* (May you be well every year), often accompanied by specific revolutionary slogans such as *\"Tahya Masr\"* (Long live Egypt)."
+  },
+  {
+    "holiday_name": "Louis Riel Day",
+    "country_code": "CA",
+    "guide": "### Louis Riel Day (Canada)\n\n**Cultural Significance**\nObserved annually on the third Monday of February in Manitoba (and coinciding with similar heritage days in other provinces), Louis Riel Day honors Louis Riel, the political leader of the M\u00e9tis people and a founder of Manitoba. The holiday celebrates M\u00e9tis culture, history, and Riel's tireless defense of M\u00e9tis rights, land, and culture against the Canadian government. \n\n**Traditions & Customs**\n*   **Festivals & Gatherings:** Communities host the Festival du Voyageur (Western Canada's largest winter festival) featuring historic reenactments, live music, and storytelling.\n*   **M\u00e9tis Heritage:** Celebrations highlight traditional M\u00e9tis arts, including beadwork, jigging (dance), and fiddle music.\n*   **Outdoor Activities:** Many enjoy winter sports, snowshoeing, and admiring giant snow sculptures.\n\n**Local Greeting**\n*   *\"Happy Louis Riel Day!\"* \n*   In Michif (the traditional M\u00e9tis language): *\"Michif kiskinoham\u00e2kewin\"* (or simply greeting friends with warmth and community spirit)."
+  }
+]

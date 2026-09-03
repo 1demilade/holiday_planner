@@ -57,17 +57,17 @@ class ComparisonService:
     # on the instance of the class and can be called on the class itself.
     @staticmethod
     def _extract_year(holiday: Holiday) -> int:
-        """Extract year from a holiday date"""
+        # Extract year from a holiday date
         return int(holiday.date[:4]) # extract the first four characters of the date string and convert to int
     
     @staticmethod
     def _normalize_name(name: str) -> str:
-        """Normalize the holiday name to make comparisons case-sensitive and remove any spaces"""
+        # Normalize the holiday name to make comparisons case-sensitive and remove any spaces
         return "".join(name.lower().split())
 
     def _find_shared_holidays(self, holidays_a: List[Holiday], holidays_b: List[Holiday]) -> List[Holiday]:
-        """Find holidays that are shared between two countries based on normalized names."""
-        shared = [] # list to syore shared holidays.
+        # Find holidays that are shared between two countries based on normalized names.
+        shared = [] # list to store shared holidays.
         
         # create a set of normalized names of holidays in country b
         normalized_names_of_b = {self._normalize_name(holiday.name) for holiday in holidays_b}
@@ -80,7 +80,7 @@ class ComparisonService:
         return shared # return the list of shared holidays
 
     def _find_overlapping_dates(self, holidays_a: List[Holiday], holidays_b: List[Holiday]) -> List[tuple]:
-        """Find holidays that occur on the same date in both countries."""
+        # Find holidays that occur on the same date in both countries.
         
         # create a list to store tuples of overlapping holidays
         overlapping = []
@@ -103,7 +103,7 @@ class ComparisonService:
         return overlapping # return the list of tuples containing overlapping holidays from both countries.
 
     def _find_country_specific(self, holidays_a: List[Holiday], holidays_b: List[Holiday]) -> List[Holiday]:
-        """Find holidays that are specific to one country and not present in the other based on normalized names."""
+        # Find holidays that are specific to one country and not present in the other based on normalized names.
         
         # create a set of normalized names of holidays in country
         names_b = {self._normalize_name(holiday.name) for holiday in holidays_b}
