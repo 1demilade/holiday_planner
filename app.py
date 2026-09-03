@@ -332,6 +332,7 @@ with tab3:
             # Put the country label and delete button side by side
             favourite_col, remove_col = st.columns([4, 1])
             favourite_year = favourite.get("year")
+
             # Some older records may not have a year, so avoid displaying a stray 'None'
             year_label = f" - {favourite_year}" if favourite_year else ""
             favourite_col.write(
@@ -345,8 +346,10 @@ with tab3:
             ):
                 # The key makes this button unique even when one country has several saved years
                 file_service.remove_favourite(favourite["code"], favourite_year)
+
                 # Streamlit reruns the script so the deleted item disappears immediately
                 st.rerun()
+            
             with st.expander("View holiday schedule", expanded=False):
                 # FileService returns dictionaries; this shape is what the dataframe expects
                 saved_holidays = [
@@ -362,6 +365,7 @@ with tab3:
                 else:
                     # A favourite can exist even when its schedule was saved empty
                     st.info("No holiday schedule was saved for this favourite.")
+            
             if index < len(favourite_details) - 1:
                 # Keep records visually separate, but skip an unnecessary divider at the end
                 st.divider()
@@ -383,7 +387,7 @@ with tab3:
                 )
                 st.markdown(saved_guide["guide"])
                 if index < len(saved_guides) - 1:
-                    # Separators make multiple long guides easier to scan
+                    # use separators to make multiple long guides easier to scan
                     st.divider()
         else:
             st.caption("No cultural guides saved yet.")
