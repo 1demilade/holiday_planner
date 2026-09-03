@@ -1,209 +1,58 @@
-[
-  {
-    "country_a": "NG",
-    "country_b": "US",
-    "year": 2026,
-    "shared_holidays": [
-      {
-        "name": "New Year's Day",
-        "date": "2026-01-01",
-        "holiday_type": "Public",
-        "country_code": "NG"
-      },
-      {
-        "name": "Good Friday",
-        "date": "2026-04-03",
-        "holiday_type": "Public",
-        "country_code": "NG"
-      },
-      {
-        "name": "Christmas Day",
-        "date": "2026-12-25",
-        "holiday_type": "Public",
-        "country_code": "NG"
-      }
-    ],
-    "overlapping_dates": [
-      [
-        {
-          "name": "New Year's Day",
-          "date": "2026-01-01",
-          "holiday_type": "Public",
-          "country_code": "NG"
-        },
-        {
-          "name": "New Year's Day",
-          "date": "2026-01-01",
-          "holiday_type": "Public, Bank",
-          "country_code": "US"
-        }
-      ],
-      [
-        {
-          "name": "Good Friday",
-          "date": "2026-04-03",
-          "holiday_type": "Public",
-          "country_code": "NG"
-        },
-        {
-          "name": "Good Friday",
-          "date": "2026-04-03",
-          "holiday_type": "Public",
-          "country_code": "US"
-        }
-      ],
-      [
-        {
-          "name": "Good Friday",
-          "date": "2026-04-03",
-          "holiday_type": "Public",
-          "country_code": "NG"
-        },
-        {
-          "name": "Good Friday",
-          "date": "2026-04-03",
-          "holiday_type": "Optional",
-          "country_code": "US"
-        }
-      ],
-      [
-        {
-          "name": "Christmas Day",
-          "date": "2026-12-25",
-          "holiday_type": "Public",
-          "country_code": "NG"
-        },
-        {
-          "name": "Christmas Day",
-          "date": "2026-12-25",
-          "holiday_type": "Public, Bank",
-          "country_code": "US"
-        }
-      ]
-    ],
-    "country_a_only": [
-      {
-        "name": "Easter Monday",
-        "date": "2026-04-06",
-        "holiday_type": "Public",
-        "country_code": "NG"
-      },
-      {
-        "name": "Workers' Day",
-        "date": "2026-05-01",
-        "holiday_type": "Public",
-        "country_code": "NG"
-      },
-      {
-        "name": "Children's Day",
-        "date": "2026-05-27",
-        "holiday_type": "Public",
-        "country_code": "NG"
-      },
-      {
-        "name": "Democracy Day",
-        "date": "2026-06-12",
-        "holiday_type": "Public",
-        "country_code": "NG"
-      },
-      {
-        "name": "National Day",
-        "date": "2026-10-01",
-        "holiday_type": "Public",
-        "country_code": "NG"
-      },
-      {
-        "name": "National Youth Day",
-        "date": "2026-11-01",
-        "holiday_type": "Public",
-        "country_code": "NG"
-      },
-      {
-        "name": "Boxing Day",
-        "date": "2026-12-26",
-        "holiday_type": "Public",
-        "country_code": "NG"
-      }
-    ],
-    "country_b_only": [
-      {
-        "name": "Martin Luther King, Jr. Day",
-        "date": "2026-01-19",
-        "holiday_type": "Public, Bank",
-        "country_code": "US"
-      },
-      {
-        "name": "Lincoln's Birthday",
-        "date": "2026-02-12",
-        "holiday_type": "Observance",
-        "country_code": "US"
-      },
-      {
-        "name": "Presidents Day",
-        "date": "2026-02-16",
-        "holiday_type": "Public, Bank",
-        "country_code": "US"
-      },
-      {
-        "name": "Truman Day",
-        "date": "2026-05-08",
-        "holiday_type": "School, Authorities",
-        "country_code": "US"
-      },
-      {
-        "name": "Memorial Day",
-        "date": "2026-05-25",
-        "holiday_type": "Public, Bank",
-        "country_code": "US"
-      },
-      {
-        "name": "Juneteenth National Independence Day",
-        "date": "2026-06-19",
-        "holiday_type": "Public, Bank",
-        "country_code": "US"
-      },
-      {
-        "name": "Independence Day",
-        "date": "2026-07-04",
-        "holiday_type": "Public, Bank",
-        "country_code": "US"
-      },
-      {
-        "name": "Labour Day",
-        "date": "2026-09-07",
-        "holiday_type": "Public, Bank",
-        "country_code": "US"
-      },
-      {
-        "name": "Columbus Day",
-        "date": "2026-10-12",
-        "holiday_type": "Public",
-        "country_code": "US"
-      },
-      {
-        "name": "Columbus Day",
-        "date": "2026-10-12",
-        "holiday_type": "Bank",
-        "country_code": "US"
-      },
-      {
-        "name": "Indigenous Peoples' Day",
-        "date": "2026-10-12",
-        "holiday_type": "Public",
-        "country_code": "US"
-      },
-      {
-        "name": "Veterans Day",
-        "date": "2026-11-11",
-        "holiday_type": "Public, Bank",
-        "country_code": "US"
-      },
-      {
-        "name": "Thanksgiving Day",
-        "date": "2026-11-26",
-        "holiday_type": "Public, Bank",
-        "country_code": "US"
-      }
-    ]
-  }
-]
+[COMPARISON]
+country_a=NG
+country_b=CH
+year=2026
+shared_holidays:
+HOLIDAY|New Year's Day|2026-01-01|Public|NG
+HOLIDAY|Good Friday|2026-04-03|Public|NG
+HOLIDAY|Easter Monday|2026-04-06|Public|NG
+HOLIDAY|Christmas Day|2026-12-25|Public|NG
+overlapping_dates:
+OVERLAP|New Year's Day|2026-01-01|Public|NG|New Year's Day|2026-01-01|Public|CH
+OVERLAP|Good Friday|2026-04-03|Public|NG|Good Friday|2026-04-03|Public|CH
+OVERLAP|Easter Monday|2026-04-06|Public|NG|Easter Monday|2026-04-06|Public|CH
+OVERLAP|Easter Monday|2026-04-06|Public|NG|Easter Monday|2026-04-06|Observance|CH
+OVERLAP|Workers' Day|2026-05-01|Public|NG|Labour Day|2026-05-01|Public|CH
+OVERLAP|Workers' Day|2026-05-01|Public|NG|Labour Day|2026-05-01|Observance|CH
+OVERLAP|National Youth Day|2026-11-01|Public|NG|All Saints' Day|2026-11-01|Public|CH
+OVERLAP|National Youth Day|2026-11-01|Public|NG|All Saints' Day|2026-11-01|Observance|CH
+OVERLAP|Christmas Day|2026-12-25|Public|NG|Christmas Day|2026-12-25|Public|CH
+OVERLAP|Boxing Day|2026-12-26|Public|NG|St. Stephen's Day|2026-12-26|Public|CH
+OVERLAP|Boxing Day|2026-12-26|Public|NG|St. Stephen's Day|2026-12-26|Observance|CH
+country_a_only:
+HOLIDAY|Workers' Day|2026-05-01|Public|NG
+HOLIDAY|Children's Day|2026-05-27|Public|NG
+HOLIDAY|Democracy Day|2026-06-12|Public|NG
+HOLIDAY|National Day|2026-10-01|Public|NG
+HOLIDAY|National Youth Day|2026-11-01|Public|NG
+HOLIDAY|Boxing Day|2026-12-26|Public|NG
+country_b_only:
+HOLIDAY|St. Berchtold's Day|2026-01-02|Public|CH
+HOLIDAY|Epiphany|2026-01-06|Public|CH
+HOLIDAY|Epiphany|2026-01-06|Observance|CH
+HOLIDAY|Republic Day|2026-03-01|Public|CH
+HOLIDAY|Saint Joseph's Day|2026-03-19|Public|CH
+HOLIDAY|Saint Joseph's Day|2026-03-19|Observance|CH
+HOLIDAY|Näfels procession|2026-04-04|Public|CH
+HOLIDAY|Labour Day|2026-05-01|Public|CH
+HOLIDAY|Labour Day|2026-05-01|Observance|CH
+HOLIDAY|Ascension Day|2026-05-14|Public|CH
+HOLIDAY|Whit Monday|2026-05-25|Public|CH
+HOLIDAY|Whit Monday|2026-05-25|Observance|CH
+HOLIDAY|Corpus Christi|2026-06-04|Public|CH
+HOLIDAY|Corpus Christi|2026-06-04|Observance|CH
+HOLIDAY|Saint Peter and Saint Paul|2026-06-29|Observance|CH
+HOLIDAY|Swiss National Day|2026-08-01|Public|CH
+HOLIDAY|Assumption of the Virgin Mary|2026-08-15|Public|CH
+HOLIDAY|Assumption of the Virgin Mary|2026-08-15|Observance|CH
+HOLIDAY|Geneva Prayday|2026-09-10|Public|CH
+HOLIDAY|Federal Day of Thanksgiving|2026-09-20|Observance|CH
+HOLIDAY|Federal Fast Monday|2026-09-21|Public|CH
+HOLIDAY|All Saints' Day|2026-11-01|Public|CH
+HOLIDAY|All Saints' Day|2026-11-01|Observance|CH
+HOLIDAY|Immaculate Conception|2026-12-08|Public|CH
+HOLIDAY|Immaculate Conception|2026-12-08|Observance|CH
+HOLIDAY|St. Stephen's Day|2026-12-26|Public|CH
+HOLIDAY|St. Stephen's Day|2026-12-26|Observance|CH
+HOLIDAY|Restoration Day|2026-12-31|Public|CH
+[/COMPARISON]

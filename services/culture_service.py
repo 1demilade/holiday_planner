@@ -26,7 +26,7 @@ class CultureGuideGenerator:
     def get_cultural_guide(self, holiday_name: str, country_code: str) -> Iterator[str]:
         """Generates a cultural guide for a given holiday and country code using the Gemini API."""
 
-        prompt = f"Summarize the holiday '{holiday_name}' ({country_code}) in brief Markdown covering: Cultural Significance, Traditions & Customs, and Local Greeting."
+        prompt = f"Summarize the holiday '{holiday_name}' ({country_code}) in brief Markdown covering: Cultural Significance, Traditions & Customs, and Local Greeting. The two letters stand for ISO 3166-1 alpha-2 country code."
         
         try:
             response_stream = self.client.models.generate_content_stream(
